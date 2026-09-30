@@ -1,0 +1,40 @@
+import csv
+def challenge1():
+    with open("text.challenge1.txt","r") as f:
+        r = csv.reader(f, delimiter= ",")
+        for row in r:
+            print(",".join(row))
+
+def challenge2():
+    question = input("What is your name? ")
+    print(f"Hello, {question}!")
+    question2 = input("What is your favorite color? ")
+    with open("text.challenge2.txt","w") as f:
+        f.write(f"Name: {question}\n")
+        f.write(f"Favorite Color: {question2}\n")
+        
+def challenge3():
+    my_list = [["Top Gun","Risky Business","Minority Report"],["Titanic","The Revenant","Inception"],["Training Day","Man on Fire","Flight"]]
+    with open("text.challenge3.csv","w",newline="") as f:
+        w = csv.writer(f, delimiter=",")
+        w.writerows(my_list)
+
+def challenge4():   
+    #challenge3()のmy_listの内容を日本語に変換して別ファイルに書き込むプログラムを作成する
+        my_list_jp = [["トップガン","リスキー・ビジネス","マイノリティ・リポート"],["タイタニック","レヴェナント","インセプション"],["トレーニング・デイ","マン・オン・ファイア","フライト"]]
+        with open("text.challenge4.csv","w",newline="",encoding="utf-8") as f:
+            w = csv.writer(f, delimiter=",")
+            w.writerows(my_list_jp)    
+
+if __name__ == "__main__":
+    print("Challenge 1: Read and print CSV file")
+    challenge1()
+    print("Challenge 2: Get user input and write to file")
+    challenge2()
+    print("Challenge 3: Write list to CSV file")    
+    challenge3()
+    print("Challenge 4: Write Japanese titles to CSV file")
+    challenge4()
+    
+    
+        
